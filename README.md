@@ -13,6 +13,12 @@ Code challege based on: https://codesandbox.io/s/fe-api-parser-challenge-l823e?f
 - Sass for css preprocessing
 - browser's fetch API for API calls
 
+## Considerations
+
+- No error states were considered to keep scope shorter
+- No loading states were considered to keep scope shorter
+- Tests were added but it is likely coverage is not 100%
+
 ## Changes applied to original instructions
 
 Some changes were added even though they weren't part of the requirements
