@@ -50,7 +50,7 @@ const getSpecies = async (url: string): Promise<ISpecies> => {
     const speciesResponse = await fetchUtil<ISpeciesResponse>('GET', url);
 
     /**
-     * For yoda, the species name is Yoda's species. That string doesn't match as
+     * For yoda, the species name is "Yoda's species", that string doesn't match as
      * key in the object used to map the image url, so it is considered as a special case
      * if the name starts with "yoda"
      */
