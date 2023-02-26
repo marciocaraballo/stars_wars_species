@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Star wars species API parsing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Code challege based on: https://codesandbox.io/s/fe-api-parser-challenge-l823e?file=/README.md
 
-## Available Scripts
+![app](https://user-images.githubusercontent.com/2772762/221444457-b7974d6d-a6e5-4075-b6ba-e12186ac403e.png)
 
-In the project directory, you can run:
+## Tech stack
 
-### `npm start`
+- App boostrapped with create-react-app
+- Typescript for types definition and type checks
+- prettier was run to provide a standarized code styling
+- Testing with Jest and RTL
+- Sass for css preprocessing
+- browser's fetch API for API calls
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Changes applied to original instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Some changes were added even though they weren't part of the requirements
 
-### `npm test`
+- Code base was built in javascript, however TS was among the dependencies. In order to make full use of TS, files were changed to `.tsx` and `.ts`,
+types were defined when they were considered necessary. Proptypes were not used in favor of TS.
+- create-react-app of the codesanbox link has a few outdated dependencies, so a new project was bootstraped with latest dependencies.
+- Some minimal styles were changed as the original ones didn't match the screenshot.
+- Some minimal changes were made to `Species.tsx` in order to display height in inches with the symbol correctly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
