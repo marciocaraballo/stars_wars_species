@@ -44,7 +44,7 @@ interface ISpecies {
 }
 
 interface ISpeciesImages {
-    [speciesName: string]: string
+    [speciesName: string]: string;
 }
 
 export type { IFilmResponse, ISpeciesResponse, ISpecies, ISpeciesImages };

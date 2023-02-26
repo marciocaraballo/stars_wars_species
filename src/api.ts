@@ -1,22 +1,24 @@
-import { IFilmResponse, ISpeciesResponse, ISpecies, ISpeciesImages } from "./types";
+import {
+    IFilmResponse,
+    ISpeciesResponse,
+    ISpecies,
+    ISpeciesImages,
+} from './types';
 
 const API_URL = 'https://swapi.dev/api/films/2/';
 
 const SPECIES_IMAGES: ISpeciesImages = {
-    droid:
-      'https://static.wikia.nocookie.net/starwars/images/f/fb/Droid_Trio_TLJ_alt.png',
-    human:
-      'https://static.wikia.nocookie.net/starwars/images/3/3f/HumansInTheResistance-TROS.jpg',
+    droid: 'https://static.wikia.nocookie.net/starwars/images/f/fb/Droid_Trio_TLJ_alt.png',
+    human: 'https://static.wikia.nocookie.net/starwars/images/3/3f/HumansInTheResistance-TROS.jpg',
     trandoshan:
-      'https://static.wikia.nocookie.net/starwars/images/7/72/Bossk_full_body.png',
-    wookie:
-      'https://static.wikia.nocookie.net/starwars/images/1/1e/Chewbacca-Fathead.png',
+        'https://static.wikia.nocookie.net/starwars/images/7/72/Bossk_full_body.png',
+    wookie: 'https://static.wikia.nocookie.net/starwars/images/1/1e/Chewbacca-Fathead.png',
     yoda: 'https://static.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png',
 };
 
 /**
  * Small utility to work with browser's fetch API
- * As the only API calls needed are GET methods, only GET 
+ * As the only API calls needed are GET methods, only GET
  * is supported
  *
  * @param method
@@ -24,7 +26,6 @@ const SPECIES_IMAGES: ISpeciesImages = {
  * @returns Promise<T>
  */
 const fetchUtil = async <T>(method: string, url: string): Promise<T> => {
-
     if (method !== 'GET') {
         throw new Error(`Unsupported method for API request: ${method}`);
     }
@@ -42,24 +43,20 @@ const fetchUtil = async <T>(method: string, url: string): Promise<T> => {
         return await response.json();
     } else {
         return Promise.reject(response);
-    };
-}
+    }
+};
 
 const getSpecies = async (url: string): Promise<ISpecies> => {
-
-    const speciesResponse = await fetchUtil<ISpeciesResponse>(
-        'GET',
-        url
-    );
+    const speciesResponse = await fetchUtil<ISpeciesResponse>('GET', url);
 
     /**
-     * For yoda, the species name is Yoda's species. That string doesn't match as 
+     * For yoda, the species name is Yoda's species. That string doesn't match as
      * key in the object used to map the image url, so it is considered as a special case
      * if the name starts with "yoda"
      */
-    const imageUrl = speciesResponse.name.toLowerCase().startsWith('yoda') ? 
-        SPECIES_IMAGES['yoda'] :
-        SPECIES_IMAGES[speciesResponse.name.toLowerCase()];
+    const imageUrl = speciesResponse.name.toLowerCase().startsWith('yoda')
+        ? SPECIES_IMAGES['yoda']
+        : SPECIES_IMAGES[speciesResponse.name.toLowerCase()];
 
     return {
         name: speciesResponse.name,
@@ -68,23 +65,20 @@ const getSpecies = async (url: string): Promise<ISpecies> => {
         height: speciesResponse.average_height,
         image: imageUrl,
         numFilms: speciesResponse.films.length,
-        language: speciesResponse.language
+        language: speciesResponse.language,
     };
-}
+};
 
 const listSpecies = async () => {
-    const filmResponse = await fetchUtil<IFilmResponse>(
-        'GET',
-        API_URL
-    );
+    const filmResponse = await fetchUtil<IFilmResponse>('GET', API_URL);
 
-    const speciesPromises = filmResponse.species.map(speciesUrl => getSpecies(speciesUrl))
+    const speciesPromises = filmResponse.species.map((speciesUrl) =>
+        getSpecies(speciesUrl)
+    );
 
     const speciesResponses = await Promise.all(speciesPromises);
 
-    return speciesResponses.map(species => species);
-}
-
-export {
-    listSpecies
+    return speciesResponses.map((species) => species);
 };
+
+export { listSpecies };

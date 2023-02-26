@@ -7,19 +7,20 @@ jest.mock('./api');
 const mockListSpecies = listSpecies as jest.MockedFunction<typeof listSpecies>;
 
 describe('<App/>', () => {
-    it ('should render a species card', async () => {
+    it('should render a species card', async () => {
+        await mockListSpecies.mockResolvedValue([
+            {
+                name: 'species-name',
+                classification: 'classification',
+                designation: 'designation',
+                language: 'language',
+                height: '180',
+                numFilms: 5,
+                image: 'url/image',
+            },
+        ]);
 
-        await mockListSpecies.mockResolvedValue([{
-            name: 'species-name',
-            classification: 'classification',
-            designation: 'designation',
-            language: 'language',
-            height: '180',
-            numFilms: 5,
-            image: 'url/image'
-        }]);
-
-        render(<App/>);
+        render(<App />);
 
         await waitFor(() => {
             expect(screen.getByText('species-name')).toBeInTheDocument();
@@ -27,18 +28,19 @@ describe('<App/>', () => {
     });
 
     it('should call listSpecies()', async () => {
+        await mockListSpecies.mockResolvedValue([
+            {
+                name: 'species-name',
+                classification: 'classification',
+                designation: 'designation',
+                language: 'language',
+                height: '180',
+                numFilms: 5,
+                image: 'url/image',
+            },
+        ]);
 
-        await mockListSpecies.mockResolvedValue([{
-            name: 'species-name',
-            classification: 'classification',
-            designation: 'designation',
-            language: 'language',
-            height: '180',
-            numFilms: 5,
-            image: 'url/image'
-        }]);
-
-        render(<App/>);
+        render(<App />);
 
         await screen.findByText('species-name');
 
