@@ -10,6 +10,9 @@ interface SpeciesProps {
   readonly language: string;
 }
 
+const CM_TO_IN_CONVERSION_RATIO = 2.54;
+const NA = 'n/a';
+
 const Species = ({
   name,
   classification,
@@ -17,7 +20,7 @@ const Species = ({
   height,
   image,
   numFilms,
-  language,
+  language
 }: SpeciesProps) => (
   <div className="Species">
     <h2>{name}</h2>
@@ -33,7 +36,7 @@ const Species = ({
         <strong>Language:</strong> {language}
       </p>
       <p>
-        <strong>Avg. Height:</strong> {height}
+        <strong>Avg. Height:</strong> {height !== NA ? <span>{Math.round(parseInt(height, 10)/CM_TO_IN_CONVERSION_RATIO)}&#8243;</span> : height}
       </p>
       <p>
         <strong>Number of Films:</strong> {numFilms}
@@ -43,3 +46,4 @@ const Species = ({
 );
 
 export default Species;
+export type { SpeciesProps };
