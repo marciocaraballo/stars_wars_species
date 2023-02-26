@@ -1,5 +1,14 @@
-import PropTypes from 'prop-types';
 import './Species.scss';
+
+interface SpeciesProps {
+  readonly name: string;
+  readonly classification: string;
+  readonly designation: string;
+  readonly height: string;
+  readonly image: string;
+  readonly numFilms: number;
+  readonly language: string;
+}
 
 const Species = ({
   name,
@@ -9,7 +18,7 @@ const Species = ({
   image,
   numFilms,
   language,
-}) => (
+}: SpeciesProps) => (
   <div className="Species">
     <h2>{name}</h2>
     <img src={image} alt={name} width={200} height={100} />
@@ -32,15 +41,5 @@ const Species = ({
     </div>
   </div>
 );
-
-Species.propTypes = {
-  name: PropTypes.string.isRequired,
-  classification: PropTypes.string.isRequired,
-  designation: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  numFilms: PropTypes.number.isRequired,
-  language: PropTypes.string.isRequired,
-};
 
 export default Species;
