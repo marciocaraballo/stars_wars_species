@@ -4,7 +4,7 @@ interface SpeciesProps {
     readonly name: string;
     readonly classification: string;
     readonly designation: string;
-    readonly height: string;
+    readonly height: number | undefined;
     readonly image: string;
     readonly numFilms: number;
     readonly language: string;
@@ -37,15 +37,13 @@ const Species = ({
             </p>
             <p>
                 <strong>Avg. Height:</strong>{' '}
-                {height !== NA ? (
+                {height !== undefined ? (
                     <span>
-                        {Math.round(
-                            parseInt(height, 10) / CM_TO_IN_CONVERSION_RATIO
-                        )}
+                        {Math.round(height / CM_TO_IN_CONVERSION_RATIO)}
                         &#8243;
                     </span>
                 ) : (
-                    height
+                    NA
                 )}
             </p>
             <p>

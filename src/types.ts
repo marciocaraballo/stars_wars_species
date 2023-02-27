@@ -37,7 +37,7 @@ interface ISpecies {
     readonly name: string;
     readonly classification: string;
     readonly designation: string;
-    readonly height: string;
+    readonly height: number | undefined;
     readonly image: string;
     readonly numFilms: number;
     readonly language: string;

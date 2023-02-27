@@ -54,7 +54,7 @@ describe('listSpecies()', () => {
                     name: 'droid',
                     classification: 'classification',
                     designation: 'designation',
-                    average_height: '180',
+                    average_height: 'n/a',
                     films: ['film-1', 'film-2', 'film-3'],
                     language: 'language',
                 }),
@@ -107,7 +107,7 @@ describe('listSpecies()', () => {
             {
                 classification: 'classification',
                 designation: 'designation',
-                height: '180',
+                height: 180,
                 image: 'https://static.wikia.nocookie.net/starwars/images/3/3f/HumansInTheResistance-TROS.jpg',
                 language: 'language',
                 name: 'human',
@@ -116,7 +116,7 @@ describe('listSpecies()', () => {
             {
                 classification: 'classification',
                 designation: 'designation',
-                height: '180',
+                height: undefined,
                 image: 'https://static.wikia.nocookie.net/starwars/images/f/fb/Droid_Trio_TLJ_alt.png',
                 language: 'language',
                 name: 'droid',

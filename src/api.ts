@@ -58,11 +58,21 @@ const getSpecies = async (url: string): Promise<ISpecies> => {
         ? SPECIES_IMAGES['yoda']
         : SPECIES_IMAGES[speciesResponse.name.toLowerCase()];
 
+    /**
+     * height is retrieves as a string from API. However seems better for FE to
+     * consider it as a numeric value. In case we get "n/a", undefined will be stored.
+     */
+    const heightAsNumber = Number.isNaN(
+        parseInt(speciesResponse.average_height, 10)
+    )
+        ? undefined
+        : parseInt(speciesResponse.average_height, 10);
+
     return {
         name: speciesResponse.name,
         classification: speciesResponse.classification,
         designation: speciesResponse.designation,
-        height: speciesResponse.average_height,
+        height: heightAsNumber,
         image: imageUrl,
         numFilms: speciesResponse.films.length,
         language: speciesResponse.language,

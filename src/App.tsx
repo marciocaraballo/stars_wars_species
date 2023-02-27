@@ -25,7 +25,6 @@ function App() {
         fetchSpecies();
     }, []);
 
-
     return (
         <div className="App">
             <h1>Empire Strikes Back - Species Listing</h1>
