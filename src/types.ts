@@ -1,18 +1,18 @@
 interface IFilmResponse {
-    characters: string[];
-    created: Date;
-    director: string;
-    edited: Date;
-    episode_id: string;
-    opening_crawl: string;
-    planets: string[];
-    producer: string;
-    release_date: Date;
-    species: string[];
-    starships: string[];
-    title: string;
-    url: string;
-    vehicles: string[];
+    readonly characters: string[];
+    readonly created: Date;
+    readonly director: string;
+    readonly edited: Date;
+    readonly episode_id: string;
+    readonly opening_crawl: string;
+    readonly planets: string[];
+    readonly producer: string;
+    readonly release_date: Date;
+    readonly species: string[];
+    readonly starships: string[];
+    readonly title: string;
+    readonly url: string;
+    readonly vehicles: string[];
 }
 
 interface ISpeciesResponse {
