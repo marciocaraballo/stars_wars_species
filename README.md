@@ -15,9 +15,11 @@ Code challege based on: https://codesandbox.io/s/fe-api-parser-challenge-l823e?f
 
 ## Considerations
 
-- No error states were considered to keep scope shorter
-- No loading states were considered to keep scope shorter
-- Tests were added but it is likely coverage is not 100%
+- No error or loading states were considered to keep scope shorter.
+- No e2e were considered as the app is quite small.
+- Tests were added but it is likely coverage is not 100%.
+- To simplify the code in `App.tsx`, an api utility was added on top of fetch API. There's only one function to call in order to do multiple API calls: one to get the list of available species in the specified movie, and calls to each individual species endpoint.
+- Only GET api calls are necessary. 
 
 ## Changes applied to original instructions
 
@@ -27,5 +29,5 @@ Some changes were added even though they weren't part of the requirements
 types were defined when they were considered necessary. Proptypes were not used in favor of TS.
 - create-react-app of the codesanbox link has a few outdated dependencies, so a new project was bootstraped with latest dependencies.
 - Some minimal styles were changed as the original ones didn't match the screenshot.
-- Some minimal changes were made to `Species.tsx` in order to display height in inches with the symbol correctly.
+- Some minimal changes were made to `Species.tsx` in order to display height in inches with the symbol correctly
 
