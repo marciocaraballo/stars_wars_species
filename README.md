@@ -13,6 +13,12 @@ Code challege based on: https://codesandbox.io/s/fe-api-parser-challenge-l823e?f
 - Sass for css preprocessing
 - browser's fetch API for API calls
 
+## How to run
+
+- Clone the repo
+- `npm install`
+- `npm start`
+
 ## Considerations
 
 - No error or loading states were considered to keep scope shorter.
