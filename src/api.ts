@@ -86,9 +86,7 @@ const listSpecies = async () => {
         getSpecies(speciesUrl)
     );
 
-    const speciesResponses = await Promise.all(speciesPromises);
-
-    return speciesResponses.map((species) => species);
+    return await Promise.all(speciesPromises);
 };
 
 export { listSpecies };

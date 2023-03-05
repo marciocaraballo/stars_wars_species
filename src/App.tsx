@@ -19,6 +19,7 @@ function App() {
                  * Not required for the challenge, but ideally the user should be informed
                  * about API errors, with an error component or an error notification
                  */
+                console.log("Something went wrong with the requests");
             }
         }
 
